@@ -17,7 +17,7 @@ npm i --save-dev codex.editor.list
 Include module at your application
 
 ```javascript
-const Paragraph = require('codex.editor.list');
+const List = require('codex.editor.list');
 ```
 
 ### Download to your project's source dir
@@ -67,7 +67,7 @@ This Tool has no config params
 
 ![](https://capella.pics/bf5a42e4-1350-499d-a728-493b0fcaeda4.jpg)
 
-You can choose list's type.
+You can choose list`s type.
 
 ## Output data
 
