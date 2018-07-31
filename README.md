@@ -85,8 +85,8 @@ You can choose list`s type.
     "data" : {
         "style" : "unordered",
         "items" : [
-            "It is a block editor",
-            "Raw output data",
+            "This is a block-styled editor",
+            "Clean output data",
             "Simple and powerful API"
         ]
     }
