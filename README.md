@@ -85,9 +85,9 @@ You can choose list`s type.
     "data" : {
         "style" : "unordered",
         "items" : [
-            "Это блочный редактор",
-            "На выводе отдает чистые данные",
-            "Имеет гибкие настройки и простой API"
+            "It is a block editor",
+            "Raw output data",
+            "Simple and powerful API"
         ]
     }
 },
