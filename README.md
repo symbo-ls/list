@@ -4,6 +4,8 @@
 
 This Tool for the [CodeX Editor](https://ifmo.su/editor) allows you to add ordered or unordered (bulleted) lists to your article.
 
+![](assets/example.gif)
+
 ## Installation
 
 ### Install via NPM
