@@ -41,13 +41,14 @@ class List {
   }
 
   /**
-   * @constructor
+   * Render plugin`s main Element and fill it with saved data
    *
-   * @param {ListData} listData
-   * @param {object} config - Tool settings
-   * @param {object} api - CodeX Editor API
+   * @param {{data: ListData, config: object, api: object}}
+   *   data — previously saved data
+   *   config - user config for Tool
+   *   api - CodeX Editor API
    */
-  constructor(listData = {}, config = {}, api = {}) {
+  constructor({data, config, api}) {
     /**
      * HTML nodes
      * @private
@@ -81,7 +82,7 @@ class List {
     };
 
     this.api = api;
-    this.data = listData;
+    this.data = data;
   }
 
   /**
