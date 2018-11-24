@@ -186,13 +186,27 @@ class List {
   }
 
   /**
+   * On paste callback that is fired from Editor
+   *
+   * @param {PasteEvent} event - event with pasted data
+   */
+  onPaste(event) {
+    if (event.type !== 'tag') {
+      return;
+    }
+
+    const list = event.detail.data;
+
+    this.data = this.pasteHandler(list);
+  }
+
+  /**
    * List Tool on paste configuration
    * @public
    */
-  static get onPaste() {
+  static get pasteConfig() {
     return {
       tags: ['OL', 'UL', 'LI'],
-      handler: List.pasteHandler
     };
   }
 
@@ -236,6 +250,12 @@ class List {
 
     this._data.style = listData.style || this.settings.find( tune => tune.default === true ).name;
     this._data.items = listData.items || [];
+
+    const oldView = this._elements.wrapper;
+
+    if (oldView) {
+      oldView.parentNode.replaceChild(this.render(), oldView);
+    }
   }
 
   /**
@@ -353,7 +373,7 @@ class List {
    * @param {HTMLUListElement|HTMLOListElement|HTMLLIElement} element
    * @returns {ListData}
    */
-  static pasteHandler(element) {
+  pasteHandler(element) {
     const {tagName: tag} = element;
     let type;
 
