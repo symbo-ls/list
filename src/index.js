@@ -191,10 +191,6 @@ class List {
    * @param {PasteEvent} event - event with pasted data
    */
   onPaste(event) {
-    if (event.type !== 'tag') {
-      return;
-    }
-
     const list = event.detail.data;
 
     this.data = this.pasteHandler(list);
