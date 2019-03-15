@@ -96,12 +96,12 @@ class List {
     // fill with data
     if (this._data.items.length) {
       this._data.items.forEach( item => {
-        this._elements.wrapper.appendChild(this._make('li', [this.CSS.item, this.CSS.input], {
+        this._elements.wrapper.appendChild(this._make('li', this.CSS.item, {
           innerHTML: item
         }));
       });
     } else {
-      this._elements.wrapper.appendChild(this._make('li', [this.CSS.item, this.CSS.input]));
+      this._elements.wrapper.appendChild(this._make('li', this.CSS.item));
     }
 
     // detect keydown on the last item to escape List
@@ -224,7 +224,6 @@ class List {
       wrapperOrdered: 'cdx-list--ordered',
       wrapperUnordered: 'cdx-list--unordered',
       item: 'cdx-list__item',
-      input: this.api.styles.input,
       settingsWrapper: 'cdx-list-settings',
       settingsButton: this.api.styles.settingsButton,
       settingsButtonActive: this.api.styles.settingsButtonActive,

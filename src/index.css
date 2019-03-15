@@ -1,49 +1,19 @@
 .cdx-list {
     margin: 0;
     padding-left: 40px;
-    min-height: 1.45em;
     outline: none;
-    counter-reset: index;
 
     &__item {
-        padding: 5.5px 0;
-        margin: 0;
-        border: 0 solid transparent;
-        min-height: 1.45em;
-        width: auto;
-        box-sizing: content-box;
-        box-shadow: none;
-        list-style: none;
-        counter-increment: index;
+        padding: 5.5px 0 5.5px 3px;
+        line-height: 1.6em;
     }
 
     &--unordered {
-        ^&__item {
-            &::before {
-                position: absolute;
-                margin-left: -21px;
-                margin-top: 9px;
-                width: 5px;
-                height: 5px;
-                border-radius: 50%;
-                background: #7b7e89;
-                content: '';
-            }
-        }
+        list-style: disc;
     }
 
     &--ordered {
-        ^&__item {
-            &::before {
-                position: absolute;
-                margin-left: -23px;
-                margin-top: 1px;
-                font-size: 13px;
-                font-weight: 500;
-                color: #7b7e89;
-                content: counter(index);
-            }
-        }
+        list-style: decimal;
     }
 
     &-settings {
