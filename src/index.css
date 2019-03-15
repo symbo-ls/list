@@ -4,10 +4,7 @@
     outline: none;
 
     &__item {
-        padding: 5.5px 0;
-        box-sizing: content-box;
-        border: 0 solid transparent;
-        box-shadow: none;
+        padding: 5.5px 0 5.5px 3px;
     }
 
     &--unordered {
@@ -16,11 +13,6 @@
 
     &--ordered {
         list-style: decimal;
-
-        ^&__item {
-            margin-left: -3px;
-            padding-left: 3px;
-        }
     }
 
     &-settings {
