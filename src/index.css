@@ -28,7 +28,7 @@
         ^&__item {
             &::before {
                 display: block;
-                margin: 8px 0 0 -20px;
+                margin: 0.5em 0 0.45em -20px;
                 width: 5px;
                 height: 5px;
                 float: left;
@@ -45,9 +45,10 @@
                 display: block;
                 min-width: 15px;
                 margin-left: -30px;
+                margin-top: 1px;
                 float: left;
                 text-align: right;
-                font-size: 13px;
+                font-size: 0.86em;
                 font-weight: 500;
                 color: #7b7e89;
                 content: counter(index);
