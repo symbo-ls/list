@@ -314,6 +314,7 @@ class List {
     /** Prevent Default li generation if item is empty */
     if (currentNode === lastItem && !lastItem.innerHTML.replace('<br>', ' ').trim()) {
       /** Insert New Block and set caret */
+      currentNode.parentElement.removeChild(currentNode);
       this.api.blocks.insertNewBlock();
       event.preventDefault();
       event.stopPropagation();
