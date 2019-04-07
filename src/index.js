@@ -288,6 +288,20 @@ class List {
   }
 
   /**
+   * Returns current List item by the caret position
+   * @return {Element}
+   */
+  get currentItem(){
+    let currentNode = window.getSelection().anchorNode;
+
+    if (currentNode.nodeType !== Node.ELEMENT_NODE) {
+      currentNode = currentNode.parentNode;
+    }
+
+    return currentNode.closest(`.${this.CSS.item}`);
+  }
+
+  /**
    * Get out from List Tool
    * by Enter on the empty last item
    * @param {KeyboardEvent} event
@@ -303,11 +317,12 @@ class List {
     }
 
     const lastItem = items[items.length - 1];
-    const currentNode = window.getSelection().anchorNode;
+    const currentItem = this.currentItem;
 
     /** Prevent Default li generation if item is empty */
-    if (currentNode === lastItem && !lastItem.innerHTML.replace('<br>', ' ').trim()) {
+    if (currentItem === lastItem && !lastItem.textContent.trim().length) {
       /** Insert New Block and set caret */
+      currentItem.parentElement.removeChild(currentItem);
       this.api.blocks.insertNewBlock();
       event.preventDefault();
       event.stopPropagation();
