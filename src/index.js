@@ -106,8 +106,7 @@ class List {
 
     // detect keydown on the last item to escape List
     this._elements.wrapper.addEventListener('keydown', (event) => {
-      const [ENTER, BACKSPACE, A] = [13, 8, 65]; // key codes
-      const cmdPressed = event.ctrlKey || event.metaKey;
+      const [ENTER, BACKSPACE] = [13, 8]; // key codes
 
       switch (event.keyCode) {
         case ENTER:
@@ -115,11 +114,6 @@ class List {
           break;
         case BACKSPACE:
           this.backspace(event);
-          break;
-        case A:
-          if (cmdPressed) {
-            this.selectItem(event);
-          }
           break;
       }
     }, false);
