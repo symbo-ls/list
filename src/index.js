@@ -135,13 +135,12 @@ class List {
   static get conversionConfig() {
     return {
       export: (data) => {
-        return data.items.join();
+        return data.items.join('.');
       },
       import: (string) => {
-        const items = [];
-        items[0] = string;
+        const items = string.split('.');
         return {
-          items: items
+          items: items.filter( (text) => text.trim() !== '')
         };
       }
     };
