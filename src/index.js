@@ -130,6 +130,24 @@ class List {
   }
 
   /**
+   * @return {{export: string, import: string}}
+   */
+  static get conversionConfig() {
+    return {
+      export: (data) => {
+        return data.items.join();
+      },
+      import: (string) => {
+        const items = [];
+        items[0] = string;
+        return {
+          items: items
+        };
+      }
+    };
+  }
+
+  /**
    * Sanitizer rules
    */
   static get sanitize() {
