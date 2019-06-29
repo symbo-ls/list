@@ -130,17 +130,27 @@ class List {
   }
 
   /**
-   * @return {{export: string, import: string}}
+   * Allow List Tool to be converted to/from other block
    */
   static get conversionConfig() {
     return {
+      /**
+       * To create exported string from list, concatenate items by dot-symbol.
+       * @param {ListData} data
+       * @return {string}
+       */
       export: (data) => {
-        return data.items.join('.');
+        return data.items.join('. ');
       },
+      /**
+       * To create a list from other block's string, just put it at the first item
+       * @param string
+       * @return {ListData}
+       */
       import: (string) => {
-        const items = string.split('.');
         return {
-          items: items.filter( (text) => text.trim() !== '')
+          items: [ string ],
+          style: 'unordered'
         };
       }
     };
