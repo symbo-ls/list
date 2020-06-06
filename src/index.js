@@ -244,14 +244,8 @@ class List {
    * @param {string} style - 'ordered'|'unordered'
    */
   toggleTune(style) {
-    this._elements.wrapper.classList.toggle(
-      this.CSS.wrapperOrdered,
-      style === 'ordered'
-    );
-    this._elements.wrapper.classList.toggle(
-      this.CSS.wrapperUnordered,
-      style === 'unordered'
-    );
+    this._elements.wrapper.classList.toggle(this.CSS.wrapperOrdered, style === 'ordered');
+    this._elements.wrapper.classList.toggle(this.CSS.wrapperUnordered, style === 'unordered');
 
     this._data.style = style;
   }
