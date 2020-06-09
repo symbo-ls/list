@@ -93,7 +93,7 @@ You can choose list`s type.
 ## I18n support
 
 This tool supports the [i18n api](https://editorjs.io/i18n-api).
-To localize the UI texts, put this object to your dictionary to the `tools` section:
+To localize UI labels, put this object to your i18n dictionary under the `tools` section:
 
 ```json
 "list": {
