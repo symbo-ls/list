@@ -13,13 +13,16 @@ This Tool for the [Editor.js](https://editorjs.io) allows you to add ordered or 
 Get the package
 
 ```shell
-npm i --save-dev @editorjs/list
+npm i --save @editorjs/list
+```
+```shell
+yarn add @editorjs/list
 ```
 
 Include module at your application
 
 ```javascript
-const List = require('@editorjs/list');
+import List from '@editorjs/list';
 ```
 
 ### Download to your project's source dir
@@ -29,33 +32,29 @@ const List = require('@editorjs/list');
 
 ### Load from CDN
 
-You can load specific version of package from [jsDelivr CDN](https://www.jsdelivr.com/package/npm/@editorjs/list).
-
-`https://cdn.jsdelivr.net/npm/@editorjs/list@1.0.2`
-
-Then require this script on page with Editor.js.
+Load the script from [jsDelivr CDN](https://www.jsdelivr.com/package/npm/@editorjs/list) and connect to your page.
 
 ```html
-<script src="..."></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
 ```
 
 ## Usage
 
-Add a new Tool to the `tools` property of the Editor.js initial config.
+Add the List Tool to the `tools` property of the Editor.js initial config.
 
 ```javascript
+import EditorJS from '@editorjs/editorjs';
+import List from '@editorjs/list';
+
 var editor = EditorJS({
-  ...
-  
+  // ...
   tools: {
     ...
     list: {
       class: List,
       inlineToolbar: true,
     },
-  }
-  
-  ...
+  },
 });
 ```
 
@@ -73,8 +72,8 @@ You can choose list`s type.
 
 | Field | Type       | Description                            |
 | ----- | ---------- | -------------------------------------- |
-| style | `string`   | type of list: `ordered` or `unordered` |
-| items | `string[]` | array of list's items                  |
+| style | `string`   | type of a list: `ordered` or `unordered` |
+| items | `string[]` | the array of list's items              |
 
 
 ```json
@@ -91,3 +90,16 @@ You can choose list`s type.
 },
 ```
 
+## I18n support
+
+This tool supports the [i18n api](https://editorjs.io/i18n-api).
+To localize UI labels, put this object to your i18n dictionary under the `tools` section:
+
+```json
+"list": {
+  "Ordered": "Нумерованный",
+  "Unordered": "Маркированный"
+}
+```
+
+See more instructions about Editor.js internationalization here: [https://editorjs.io/internationalization](https://editorjs.io/internationalization)
