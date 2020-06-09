@@ -90,3 +90,16 @@ You can choose list`s type.
 },
 ```
 
+## I18n support
+
+This tool supports the [i18n api](https://editorjs.io/i18n-api).
+To localize the UI texts, put this object to your dictionary to the `tools` section:
+
+```json
+"list": {
+  "Ordered": "Нумерованный",
+  "Unordered": "Маркированный"
+}
+```
+
+See more instructions about Editor.js internationalization here: [https://editorjs.io/internationalization](https://editorjs.io/internationalization)
