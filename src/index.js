@@ -93,8 +93,9 @@ class List {
    */
   render() {
     const style = this._data.style === 'ordered' ? this.CSS.wrapperOrdered : this.CSS.wrapperUnordered;
+    const tag = this._data.style === 'ordered' ? 'ol' : 'ul';
 
-    this._elements.wrapper = this._make('ul', [this.CSS.baseBlock, this.CSS.wrapper, style], {
+    this._elements.wrapper = this._make(tag, [this.CSS.baseBlock, this.CSS.wrapper, style], {
       contentEditable: true,
     });
 
