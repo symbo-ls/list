@@ -104,11 +104,7 @@ class List {
    * @public
    */
   render() {
-    const style = this._data.style === 'ordered' ? this.CSS.wrapperOrdered : this.CSS.wrapperUnordered;
-
-    this._elements.wrapper = this._make('ul', [this.CSS.baseBlock, this.CSS.wrapper, style], {
-      contentEditable: !this.readOnly,
-    });
+    this._elements.wrapper = this.makeMainTag(this._data.style);
 
     // fill with data
     if (this._data.items.length) {
@@ -259,14 +255,34 @@ class List {
   }
 
   /**
+   * Creates main <ul> or <ol> tag depended on style
+   *
+   * @param {string} style - 'ordered' or 'unordered'
+   * @returns {HTMLOListElement|HTMLUListElement}
+   */
+  makeMainTag(style){
+    const styleClass = style === 'ordered' ? this.CSS.wrapperOrdered : this.CSS.wrapperUnordered;
+    const tag = style === 'ordered' ? 'ol' : 'ul';
+
+    return this._make(tag, [this.CSS.baseBlock, this.CSS.wrapper, styleClass], {
+      contentEditable: !this.readOnly,
+    });
+  }
+
+  /**
    * Toggles List style
    *
    * @param {string} style - 'ordered'|'unordered'
    */
   toggleTune(style) {
-    this._elements.wrapper.classList.toggle(this.CSS.wrapperOrdered, style === 'ordered');
-    this._elements.wrapper.classList.toggle(this.CSS.wrapperUnordered, style === 'unordered');
+    const newTag = this.makeMainTag(style);
 
+    while (this._elements.wrapper.hasChildNodes()) {
+      newTag.appendChild(this._elements.wrapper.firstChild);
+    }
+
+    this._elements.wrapper.replaceWith(newTag);
+    this._elements.wrapper = newTag;
     this._data.style = style;
   }
 
