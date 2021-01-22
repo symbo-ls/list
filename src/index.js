@@ -407,7 +407,8 @@ class List {
     if (currentItem === lastItem && !lastItem.textContent.trim().length) {
       /** Insert New Block and set caret */
       currentItem.parentElement.removeChild(currentItem);
-      this.api.blocks.insert(undefined, undefined, undefined, undefined, true);
+      this.api.blocks.insert();
+      this.api.caret.setToBlock(this.api.blocks.getCurrentBlockIndex());
       event.preventDefault();
       event.stopPropagation();
     }
